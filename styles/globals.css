@@ -153,6 +153,10 @@ button.btn-google {
   color: var(--color-text);
 }
 
+span.btn-google {
+  margin-left: 0.5rem;
+}
+
 .btn-google img {
   width: 30px;
   margin-right: 10px;
