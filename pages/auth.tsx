@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { auth, googleAuthProvider } from "../lib/firebase";
+import { useContext } from "react";
+import { UserContext } from '../lib/context';
 
 export default function Auth({}) {
-    const user = null
-    const username = null
+    const { user, username} = useContext(UserContext)
     return (
         <main>
             <h1>Sign In</h1>
@@ -28,6 +29,8 @@ function SignInButton({}) {
     )
 }
 
-function SignOutButton() {return <button onClick={() => auth.signOut()}>Sign Out</button>;}
+function SignOutButton() {
+    return <button onClick={() => auth.signOut()}>Sign Out</button>;
+}
 
 function UsernameForm() {return null}

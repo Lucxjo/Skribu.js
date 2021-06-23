@@ -1,3 +1,3 @@
 export interface User {
-    photoURL: string
+    photoURL?: string
 }
