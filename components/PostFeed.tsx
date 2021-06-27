@@ -23,17 +23,22 @@ function PostItem({ post, key, admin }: { post: post; key: string; admin: boolea
 					<strong>By @{post.username}</strong>
 				</a>
 			</Link>
-            <Link href={`/${post.username}/${post.slug}`} passHref>
-				<a>
-					<strong>By @{post.title}</strong>
-				</a>
+			<Link href={`/${post.username}/${post.slug}`} passHref>
+				<h2>
+					<a>
+						<strong>{post.title}</strong>
+					</a>
+				</h2>
 			</Link>
-            <footer>
-                <span>
-                    {wordCount} words. {minsToRead} minutes to read.
-                </span>
-                <span>{post.heartCount} <Image src="/1F497.svg" alt="heartpulse" width="12px" height="12px" /></span>
-            </footer>
+			<footer>
+				<span>
+					{wordCount} words. {minsToRead} minutes to read.
+				</span>
+				<span className="push-left">
+					{post.heartCount}
+					{' 💗'}
+				</span>
+			</footer>
 		</div>
 	);
 }

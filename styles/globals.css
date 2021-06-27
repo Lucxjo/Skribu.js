@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
+@font-face {
+  font-family: 'emoji';
+  src: url('/OpenMoji-Color.ttf');
+}
+
 :root {
   --color-bg: #eef0f1;
   --color-text: #08090a;
@@ -12,7 +17,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans', 'emoji', sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   margin-top: 50px;
@@ -264,3 +269,7 @@ input[type="file"] {
 }
 
 .hidden { display:  none; }
+
+footer {
+  padding: .5rem;
+}
