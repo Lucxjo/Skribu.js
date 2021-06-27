@@ -1,0 +1,7 @@
+.cardImgCentre {
+  width:20%;
+  display:block;
+  margin:auto;
+  border-radius: 50%;
+  max-width: 150px;
+}
