@@ -1,6 +1,8 @@
-import UserProfile from '../../components/UserProfile'
+/** @format */
+
+import UserProfile from '../../components/UserProfile';
 import PostFeed from '../../components/PostFeed';
-import firebase from 'firebase/app'
+import firebase from 'firebase/app';
 import { PostProps } from '../../lib/post';
 import { getUserWithUsername, postToJson } from '../../lib/firebase';
 
@@ -8,6 +10,11 @@ export const getServerSideProps = async ({ query }: { query: any }) => {
 	const { username } = query;
 
 	const userDoc = await getUserWithUsername(username);
+
+	if (!userDoc)
+		return {
+			notFound: true,
+		};
 
 	let user = null;
 	let posts = null;
@@ -31,11 +38,17 @@ export const getServerSideProps = async ({ query }: { query: any }) => {
 	};
 };
 
-export default function UserPage({ user, posts }: {user: firebase.firestore.DocumentData, posts: PostProps}) {
-    return (
-        <main>
-            <UserProfile user={user} posts={posts} />
-            <PostFeed posts={posts} />
-        </main>
-    )
+export default function UserPage({
+	user,
+	posts,
+}: {
+	user: firebase.firestore.DocumentData;
+	posts: PostProps;
+}) {
+	return (
+		<main>
+			<UserProfile user={user} posts={posts} />
+			<PostFeed posts={posts} />
+		</main>
+	);
 }
